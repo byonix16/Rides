@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:h="http://xmlns.jcp.org/jsf/html"
+ xmlns:f="http://xmlns.jcp.org/jsf/core"
+ xmlns:p="http://primefaces.org/ui">
+<f:view>
+<h:head><title>Crear</title></h:head>
+<h:body>
+<h:form>
+<label>Date: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+<p:calendar id="fecha" value="#{main.fecha}" navigator="false"
+pattern="dd/MM/yyyy">
+ <p:ajax event="dateSelect" listener="#{main.onDateSelect}"></p:ajax>
+</p:calendar><br /><br />
+<label>Origin:   &nbsp; &nbsp; &nbsp; &nbsp;    </label>
+
+<h:inputText id="from" value="#{main.from}"></h:inputText>
+<br />	<br />
+		<label>Destination: </label>		
+					
+<h:inputText id="to" value="#{main.to}"></h:inputText>
+<br /><br />
+<label>Places: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+<h:inputText id="Places" value="#{main.places}"></h:inputText>
+<br /><br />
+<label>Price: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+
+<h:inputText id="Price" value="#{main.price}"></h:inputText>
+
+<br /><br />
+<h:commandButton value="Create ride" action="#{main.createRide}"/>
+
+<br /><br />
+<h:commandButton value="Back to main" action="#{main.main}"/>
+</h:form>
+</h:body>
+
+
+</f:view>
+
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+ xmlns="https://jakarta.ee/xml/ns/jakartaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+https://jakarta.ee/xml/ns/jakartaee/web-facesconfig_3_0.xsd"
+ version="3.0">
+
+ <navigation-rule>
+ <display-name>Main.xhtml</display-name>
+ <from-view-id>/Main.xhtml</from-view-id>
+ <navigation-case>
+ <from-outcome>crear</from-outcome>
+ <to-view-id>/Crear.xhtml</to-view-id>
+ </navigation-case>
+</navigation-rule>
+<navigation-rule>
+ <display-name>Main.xhtml</display-name>
+ <from-view-id>/Main.xhtml</from-view-id>
+ <navigation-case>
+ <from-outcome>comprobar</from-outcome>
+ <to-view-id>/Comprobar.xhtml</to-view-id>
+ </navigation-case>
+</navigation-rule>
+<navigation-rule>
+ <display-name>Crear.xhtml</display-name>
+ <from-view-id>/Crear.xhtml</from-view-id>
+ <navigation-case>
+ <from-outcome>main</from-outcome>
+ <to-view-id>/Main.xhtml</to-view-id>
+ </navigation-case>
+</navigation-rule>
+<navigation-rule>
+ <display-name>Comprobar.xhtml</display-name>
+ <from-view-id>/Comprobar.xhtml</from-view-id>
+ <navigation-case>
+ <from-outcome>main</from-outcome>
+ <to-view-id>/Main.xhtml</to-view-id>
+ </navigation-case>
+</navigation-rule>
+
+</faces-config>
