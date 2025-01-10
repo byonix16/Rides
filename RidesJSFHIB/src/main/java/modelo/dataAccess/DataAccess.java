@@ -1,26 +1,18 @@
 package modelo.dataAccess;
 
-import java.io.File;
-import java.net.NoRouteToHostException;
-import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
-import java.util.ResourceBundle;
+
 import java.util.TimeZone;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 
 import modelo.JPAUtil;
-//import configuration.ConfigXML;
 //import configuration.UtilDate;
 import modelo.dominio.*;
 
@@ -30,10 +22,6 @@ import modelo.exceptions.*;
  * It implements the data access to the objectDb database
  */
 public class DataAccess {
-//	private  EntityManager  db;
-//	private  EntityManagerFactory emf;
-
-//	ConfigXML c=ConfigXML.getInstance();
 
 	public DataAccess() {
 //		if (c.isDatabaseInitialized()) {

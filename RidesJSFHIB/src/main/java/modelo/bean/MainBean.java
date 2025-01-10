@@ -28,7 +28,7 @@ public class MainBean implements Serializable{
 	private List<String> finishes;
 	private String start;
 	private String end;
-	BLFacadeImplementation bl;
+	private BLFacadeImplementation bl;
 	public String getStart() {
 		return start;
 	}
@@ -121,7 +121,7 @@ public class MainBean implements Serializable{
 		if(fecha == null || start == null || end == null)
 			System.out.println("Missing data");
 		else {
-			if(start != "" && end != "") {
+			if(!start.equals("") && !end.equals("")) {
 				setRides(bl.getRides(start, end, fecha));
 			} else
 				System.out.println("Missing data");
@@ -154,32 +154,47 @@ public class MainBean implements Serializable{
 	} 
 	
 	public void createRide() throws RideMustBeLaterThanTodayException, RideAlreadyExistException {
-			if(fecha == null || from == null || to == null || places == null || price == null)
-				System.out.println("Missing data");
-			else {
-				if(from != "" && to != "" && places != "" && price != "") {
+		if(checkdata()) {
 					int np;
 					float pr;
 					boolean error = false;
 					try {
 						np =Integer.parseInt(places);
 						pr =Float.parseFloat(price);
-						if (np > 0 && np < 20 && pr > 0) {
 						bl.createRide(from, to, fecha, np, pr,"test@ikasle.ehu.eus");
 						System.out.println("Ride created");
-						} else {
-							System.out.println("Data is negative or excessive");
-						}
 						
 					} catch (Exception e) {
-						e.printStackTrace();
 						error = true;
 					}
 					if (error) 
-						System.out.println("Erroneous data");
-				} else
-					System.out.println("Missing data");
-			}	
+						System.out.println("An error ocurred");
+		}
+				
+	}
+	
+	public boolean checkdata() throws NumberFormatException{
+		boolean r = true;
+		
+		if(fecha == null || from == null || to == null || places == null || price == null) {
+			System.out.println("Missing data");
+			r=false;
+		} else if (from.equals("") || to.equals("") || places.equals("") || price.equals("")) {
+			System.out.println("Missing data");
+			r=false;
+		} else { 
+			try {
+			if (Float.parseFloat(price) < 0 || Integer.parseInt(places) < 0 || Integer.parseInt(places) > 20) {
+				System.out.println("Data is negative or excessive");
+				r=false;
+			}
+			} catch (Exception e) {
+				System.out.println("Erroneous data");
+				r=false;
+			}
+		}
+		
+		return r;
 	}
 	
 	public void fillends() {
@@ -187,6 +202,6 @@ public class MainBean implements Serializable{
 	}
 	
 	public void doNothing() {
-		
+		//this method does nothing but its used to force a refresh
 	}
 }

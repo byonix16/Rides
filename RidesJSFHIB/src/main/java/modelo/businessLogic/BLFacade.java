@@ -3,13 +3,11 @@ package modelo.businessLogic;
 import java.util.Date;
 import java.util.List;
 
-//import domain.Booking;
+
 import modelo.dominio.*;
 import modelo.exceptions.RideMustBeLaterThanTodayException;
 import modelo.exceptions.RideAlreadyExistException;
 
-//import javax.jws.WebMethod;
-//import javax.jws.WebService;
  
 /**
  * Interface that specifies the business logic.
